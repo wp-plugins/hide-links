@@ -31,7 +31,7 @@ class Hidelinks {
 	public static function linkreplace( $link ){
 		
 		
-		preg_match("/class=([\'|\"])+/i", $link, $matches);
+		preg_match("/<([^>]+)*class=([\'|\"])+([^>]+)*/i", $link, $matches);
 		
 		$s = ($matches) 
 			? array('<a', 'class='.$matches[1], 'href=', '/a>') // with class attr
