@@ -4,7 +4,7 @@ Tags: link, hide link, links, noindex, comment author link
 Donate link: http://avovkdesign.com/blog
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.1
+Stable tag: 1.0.2
 License: GPLv2 or later 
 
 Скрытие внешних ссылок от индексации поисковыми системами с помощью скрипта. 
@@ -58,7 +58,7 @@ Cкрывает внешние ссылки от индексации поиск
 
 == Changelog ==
 
-= 1.1 =
+= 1.0.2 =
 *   Исправлена ошибка с утановкой класса для ссылки автора комментария
 
 
