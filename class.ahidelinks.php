@@ -1,5 +1,5 @@
 <?php
-class Hidelinks {
+class AHidelinks {
 
 	private static $initiated = false;
 		
@@ -14,12 +14,12 @@ class Hidelinks {
 	public static function init_hooks() {
 		self::$initiated = true;
 		
-		add_shortcode( 'link', array( 'Hidelinks', 'hidelinks_shortcode_link') );
+		add_shortcode( 'link', array( 'AHidelinks', 'hidelinks_shortcode_link') );
 		add_filter( 'widget_text', 'do_shortcode' );
 		add_filter( 'comment_text', 'do_shortcode' );
 		
-		add_filter( 'get_comment_author_link', array( 'Hidelinks', 'hidelinks_comment_author_link') );
-		add_action( 'wp_footer', array( 'Hidelinks', 'hidelinks_inlinescript') );
+		add_filter( 'get_comment_author_link', array( 'AHidelinks', 'hidelinks_comment_author_link') );
+		add_action( 'wp_footer', array( 'AHidelinks', 'hidelinks_inlinescript') );
 		
 		wp_enqueue_script( 'jquery' );
 	}
@@ -31,7 +31,12 @@ class Hidelinks {
 	public static function linkreplace( $link ){
 		
 		
-		preg_match("/<([^>]+)*class=([\'|\"])+([^>]+)*/i", $link, $matches);
+		//preg_match("/<([^>]+)*class=([\'|\"])+([^>|\'|\"].+)*/i", $link, $matches);
+		//preg_match("/<([^>]+)*class=([\'|\"])+([^>\'\"]+)*(.*)>/i", $link, $matches);
+		preg_match("/<a[^>]+class=([\'|\"])+/i", $link, $matches);
+		
+		//var_dump($matches);
+		
 		
 		$s = ($matches) 
 			? array('<a', 'class='.$matches[1], 'href=', '/a>') // with class attr
@@ -41,6 +46,9 @@ class Hidelinks {
 			? array('<span', 'class='.$matches[1].'link ', 'data-link=', '/span>')	// with class attr
 			: array('<span class="link"', 'data-link=', '/span>');  // without class attr
 		
+		//var_dump($s);
+		//var_dump($r);
+
 		return str_replace( $s, $r, $link );
 
 	}
