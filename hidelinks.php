@@ -3,7 +3,7 @@
  * Plugin Name: Hide Links
  * Plugin URI: http://avovkdesign.com/hidelinks-plugin.html
  * Description: Скрытие внешних ссылок с помощью JavaScript. <strong>Добавляет шоткод <code>[link]</code> и скрывает ссылки авторов комментариев</strong>.
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: Alexandra Vovk
  * Author URI: http://avovkdesign.com/
  * License: GPLv2 or later
