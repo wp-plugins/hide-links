@@ -21,7 +21,7 @@ class AHidelinks {
 		add_filter( 'get_comment_author_link', array( 'AHidelinks', 'hidelinks_comment_author_link') );
 		add_filter( 'get_comment_author_url_link', array( 'AHidelinks', 'hidelinks_comment_author_link') );
 		
-		add_action( 'wp_footer', array( 'AHidelinks', 'hidelinks_inlinescript') );
+		add_action( 'wp_footer', array( 'AHidelinks', 'hidelinks_inlinescript'), 100 );
 		
 		wp_enqueue_script( 'jquery' );
 	}
